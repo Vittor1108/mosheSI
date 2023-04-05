@@ -1,0 +1,56 @@
+<section>
+  <div>
+    <h1>Criar Tarefas</h1>
+    <article>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="name">Nome: </label>
+          <input
+            type="text"
+            placeholder="Digite a tarefa"
+            id="name"
+            formControlName="name"
+          />
+          <p
+            *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched"
+            class="messageError"
+          >
+            Nome é obrigatório
+          </p>
+        </div>
+        <div>
+          <label for="description">Descrição: </label>
+          <textarea
+            type="text"
+            placeholder="Digite a tarefa"
+            id="description"
+            formControlName="description"
+          ></textarea>
+          <p
+            *ngIf="form.get('description')?.errors?.['required'] && form.get('description')?.touched"
+            class="messageError"
+          >
+            Descrição é obrigatório
+          </p>
+        </div>
+        <div class="buttons">
+          <button [disabled]="!form.valid">Adicionar</button>
+          <button (click)="clearValues()" type="button">Limpar</button>
+        </div>
+      </form>
+    </article>
+    <article class="listTasks">
+      <ul>
+        <li *ngFor="let task of tasksList">
+          <p>{{ task.name }}</p>
+          <div>
+            <button (click)="onCompleted(task!)">Completar</button>
+            <a routerLink="edit/{{ task.id }}">Editar</a>
+            <button (click)="onDelete(task.id!)">Excluir</button>
+          </div>
+        </li>
+      </ul>
+    </article>
+    <a routerLink="tasks-completed">Ver Tarefas Completas</a>
+  </div>
+</section>

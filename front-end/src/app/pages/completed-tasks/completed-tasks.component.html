@@ -1,0 +1,20 @@
+<section>
+  <div>
+    <h1>Tarefas Completas</h1>
+    <article class="listTasks" *ngIf="tasksCompleted">
+      <ul>
+        <li *ngFor="let task of tasksCompleted">
+          <p>{{ task.name }}</p>
+          <div>
+            <button (click)="onRestore(task!)">Restaurar</button>
+            <button (click)="onDelete(task.id!)">Excluir</button>
+          </div>
+        </li>
+      </ul>
+    </article>
+    <div *ngIf="!tasksCompleted.length" class="messageError">
+      <p>Não há tarefas completas</p>
+    </div>
+    <a routerLink="">Voltar</a>
+  </div>
+</section>

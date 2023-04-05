@@ -1,0 +1,41 @@
+<section>
+  <article>
+    <h1>Editar Tarefa</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Nome: </label>
+        <input
+          type="text"
+          placeholder="Digite a tarefa"
+          id="name"
+          formControlName="name"
+        />
+        <p
+          *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched"
+          class="messageError"
+        >
+          Nome é obrigatório
+        </p>
+      </div>
+      <div>
+        <label for="description">Descrição: </label>
+        <textarea
+          type="text"
+          placeholder="Digite a tarefa"
+          id="description"
+          formControlName="description"
+        ></textarea>
+        <p
+          *ngIf="form.get('description')?.errors?.['required'] && form.get('description')?.touched"
+          class="messageError"
+        >
+          Descrição é obrigatório
+        </p>
+      </div>
+      <div class="buttons">
+        <button [disabled]="!form.valid">Salvar</button>
+        <a routerLink="">Voltar</a>
+      </div>
+    </form>
+  </article>
+</section>

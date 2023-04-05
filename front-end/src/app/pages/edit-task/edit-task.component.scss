@@ -1,0 +1,168 @@
+section {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  h1 {
+    color: white;
+  }
+
+  article {
+    width: 90%;
+    max-width: 330px;
+    margin: 20px auto 0 auto;
+
+    input {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid black;
+      outline: 1px solid black;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      color: white;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    textarea {
+      width: 100%;
+      resize: vertical;
+      min-height: 100px;
+      border-radius: 10px;
+      padding: 7px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    div {
+      margin-bottom: 20px;
+
+      .messageError {
+        text-align: left;
+        margin-top: 5px;
+        font-size: 14px;
+        color: red;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      button, a{
+        text-decoration: none;
+        flex: 1;
+        padding: 7px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        transition: opacity 0.3s;
+        cursor: pointer;
+        &:nth-child(1) {
+          background-color: green;
+          margin-right: 10px;
+          @media screen and (max-width: 139px) {
+            margin: 0 auto 10px auto;
+          }
+          &:disabled {
+            opacity: 0.3;
+            cursor: no-drop;
+            background-color: rgba(0, 0, 0, 0.5);
+          }
+        }
+
+        &:nth-child(2) {
+          background-color: black;
+        }
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .listTasks {
+    margin-top: 40px;
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+
+    ul {
+      list-style-type: none;
+
+      li {
+        background-color: white;
+        color: black;
+        padding: 6px;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        div {
+          flex: 1;
+          margin-bottom: 0;
+
+          button,
+          a {
+            display: inline-block;
+            padding: 4px;
+            color: white;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            transition: opacity 0.3s;
+            width: 100px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            &:nth-child(1) {
+              margin-right: 10px;
+              background-color: green;
+            }
+
+            &:nth-child(2) {
+              margin-right: 10px;
+              background-color: black;
+            }
+
+            &:nth-child(3) {
+              background-color: red;
+            }
+
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        p {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  > div {
+    width: 100%;
+    > a {
+      color: white;
+      margin-top: 30px;
+      transition: all 0.3s;
+
+      &:hover {
+        color: green;
+      }
+    }
+  }
+}
